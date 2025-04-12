@@ -12,9 +12,9 @@ body {
 
 .cus-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* LEFT COLUMN */
@@ -23,10 +23,11 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   background-color: black;
-  max-width: 900px;
   width: 100%;
+  max-width: 700px;
   border-radius: 10px;
   padding: 30px;
+  flex-shrink: 1;
 }
 
 .logo {
@@ -67,6 +68,7 @@ body {
   top: 20px;
   height: fit-content;
   width: 220px;
+  flex-shrink: 0;
 }
 
 .section {
@@ -79,56 +81,50 @@ body {
   align-items: flex-end;
 }
 
-/* MEDIA QUERIES FOR RESPONSIVENESS */
-@media (max-width: 1024px) {
+/* RESPONSIVE: scale layout without altering structure */
+@media (max-width: 900px) {
   .cus-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .right-column {
-    position: static;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .section {
-    flex: 1 1 150px;
-    height: 80px;
-    text-align: center;
+    padding: 10px;
   }
 
   .left-column {
-    grid-template-columns: 1fr;
+    padding: 20px;
+    max-width: 100%;
   }
 
-  .logo, .article {
-    grid-column: span 1;
+  .right-column {
+    width: 180px;
   }
-}
 
-@media (max-width: 600px) {
   .article h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .article p {
     font-size: 15px;
   }
+}
 
+@media (max-width: 600px) {
   .left-column {
-    padding: 20px;
+    padding: 15px;
   }
 
   .right-column {
-    flex-direction: column;
-    align-items: stretch;
+    width: 100%;
+    position: static;
   }
 
   .section {
     height: auto;
-    padding: 15px;
+    padding: 12px;
+  }
+
+  .article h1 {
+    font-size: 20px;
+  }
+
+  .article p {
+    font-size: 14px;
   }
 }
