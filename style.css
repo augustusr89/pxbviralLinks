@@ -1,78 +1,134 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: sans-serif;
-    background-color: #f0f0e9;
-    padding: 20px;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f0f0e9;
+  padding: 20px;
+}
+
+.cus-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  background-color: black;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.logo {
+  width: 60px;
+  height: 40px;
+  margin: 0 auto 20px auto;
+  display: block;
+  grid-column: span 2;
+}
+
+.article {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: #333;
+  grid-column: span 2;
+}
+
+.article h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.article p {
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+/* RIGHT COLUMN */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  width: 220px;
+}
+
+.section {
+  background-color: #222;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 1024px) {
   .cus-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .left-column {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    background-color: black;
-    width: 700px;
-    border-radius: 10px;
-    padding: 30px;
-    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
   }
 
-  .logo {
-    width: 60px;
-    height: 40px;
-    margin: 0 auto 20px auto;
-    display: block;
-    grid-column: span 2;
-  }
-  
-  /* Article Styling */
-  .article {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    color: #333;
-    grid-column: span 2;
-  }
-  
-  .article h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #222;
-  }
-  
-  .article p {
-    line-height: 1.8;
-    font-size: 16px;
-    margin-bottom: 16px;
-  }
-  
   .right-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: sticky;
-    top: 20px;
-    height: fit-content;
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
+
   .section {
-    background-color: #222;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
-    height: 100px;
-    display: flex;
-    align-items: flex-end;
+    flex: 1 1 150px;
+    height: 80px;
+    text-align: center;
   }
-  
+
+  .left-column {
+    grid-template-columns: 1fr;
+  }
+
+  .logo, .article {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .article h1 {
+    font-size: 22px;
+  }
+
+  .article p {
+    font-size: 15px;
+  }
+
+  .left-column {
+    padding: 20px;
+  }
+
+  .right-column {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section {
+    height: auto;
+    padding: 15px;
+  }
+}
